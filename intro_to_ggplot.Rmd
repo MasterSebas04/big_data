@@ -1,0 +1,59 @@
+---
+title: "intro_to_ggplot"
+name: Sebastian Lange
+output:
+  word_document: default
+  html_document: default
+date: "2026-01-21"
+---
+
+First we are going to add our libraries. This includes openintro, tidyverse and palmerpenguins.
+
+```{r}
+library(openintro)
+library(tidyverse)
+library(palmerpenguins)
+```
+
+Call up the library. The package of palmerpenguins shows different species of penguin on the Palmer Archipelago, and provides measurements of each species, their sex and year.
+
+Description of Dataser: The data was collected by Dr. Kristen Gorman at the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network. The data was collected as part of the US Long Term Ecological Research Network asking about foraging among adult male and female penguins. Data was collected in the Palmer Archipelago for PHD students.
+
+```{r}
+glimpse(penguins)
+```
+
+## Question 1
+
+```{r}
+ggplot(
+  # dataset
+  penguins,
+  # aes stands for aesthetics, first layer that defines axis and color
+  aes(x = bill_depth_mm,y = bill_length_mm,colour = species)) +
+  # scatterplot
+  geom_point() +
+  # titles to make the graphs clear and easy to read
+  labs(
+    title = "Bill depth and length",
+    subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
+    x = "Bill depth (mm)", y = "Bill length (mm)",
+    colour = "Species",
+    caption = "Source: Palmer Station LTER / palmerpenguins package"
+  ) 
+
+```
+We are looking at three different species of penguin (Adelie, Chinstrap, and Gentoo). We are then looking at the Bill Length v.s Bill Depth graph to see the correlation.
+
+1.  3 variables
+2.  Bill Length (y-axis), Bill Depth (x-axis), and Species (color)
+3.  It is a scatterplot
+4.  Each variable is represented as a specific individual penguin species.
+
+## Question 2
+a. The following data was collected by Dr. Kristen Gorman.
+b. The data was collected in the Palmer Station in the Palmer Archipelago
+c. They collected data by measuring the penguin bill length, bill depth, fipper length, body mass, sex, and age.
+
+
+
